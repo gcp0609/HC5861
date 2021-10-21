@@ -16,8 +16,8 @@
 
 # 去除默认主题
 # sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-cd 
-cd openwrt
+
+# current directory is openwrt
 CONF_FILE=".config"
 MOD=`egrep "^CONFIG_TARGET_ramips_[^_]+=y" $CONF_FILE`
 MOD=`awk -v FS='[_=\n]' '{print $4}' <<< $MOD`

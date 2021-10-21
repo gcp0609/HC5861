@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 #=================================================
 # Description: DIY script
 # Lisence: MIT
@@ -33,5 +34,5 @@ sed -i 's/STAMP_BUILT:=\$(STAMP_BUILT)_\$(shell \$(SCRIPT_DIR)\/kconfig.pl \$(LI
 #sed -i 's#STAMP_BUILT:=$(STAMP_BUILT)_$(shell $(SCRIPT_DIR)/kconfig.pl $(LINUX_DIR)/.config | mkhash md5)#STAMP_BUILT:=$(STAMP_BUILT)_$(shell cat $(LINUX_DIR)/.vermagic)#g' package/kernel/linux/Makefile
 
 # modify openwrt/blob/master/include/target.mk, conflict with dnsmasq-full
-sed -i "s/dnsmasq \/#dnsmasq \/" include/target.mk
+ sed -i 's=dnsmasq \\=#dnsmasq \\=' include/target.mk
 
